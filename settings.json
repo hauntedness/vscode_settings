@@ -1,0 +1,261 @@
+{
+    //--------------------------------------
+    "go.survey.prompt": false,
+    "go.trace.server": "off",
+    "go.coverOnSave": false,
+    "go.enableCodeLens": {
+        "references": false,
+        "runtest": false,
+    },
+    "go.gocodeAutoBuild": false,
+    "go.lintOnSave": "workspace",
+    "go.lintTool": "golangci-lint",
+    "go.lintFlags": [
+        // "--fast=true"
+    ],
+    "[go]": {
+        "editor.formatOnSave": false,
+    },
+    "go.vetFlags": [
+        "-all"
+    ],
+    "go.testExplorer.enable": true,
+    "go.testOnSave": false,
+    "go.testTimeout": "3600s",
+    "go.testFlags": [
+        "-gcflags=all=-l",
+        "-v",
+        "-count=5"
+    ],
+    "go.useLanguageServer": true,
+    "go.toolsManagement.autoUpdate": false,
+    "gopls": {
+        "ui.codelenses": {
+            "gc_details": true,
+        },
+        "ui.diagnostic.analyses": {
+            "nilness": true,
+            "unusedparams": true
+        },
+        "ui.completion.matcher": "Fuzzy",
+        "ui.completion.experimentalPostfixCompletions": true,
+    },
+    // ------------------------------------
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": "\\.go$",
+                "isAsync": true,
+                "cmd": "gofumpt -w ${file}"
+            },
+        ]
+    },
+    //--------------------------------------
+    //--------------------------------------
+    "explorer.confirmDelete": false,
+    "explorer.autoReveal": false,
+    "explorer.confirmDragAndDrop": false,
+    "search.followSymlinks": false,
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "debug.allowBreakpointsEverywhere": true,
+    // -------------------------------------------
+    // -------------------------------------------
+    "editor.suggest.insertMode": "replace",
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.formatOnSave": true,
+    "editor.bracketPairColorization.enabled": true,
+    "window.commandCenter": false,
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.value": 10,
+    "workbench.editor.enablePreview": false,
+    "editor.wordBasedSuggestions": true,
+    "editor.suggestSelection": "first",
+    "editor.fontSize": 17,
+    "editor.tabSize": 4,
+    "editor.tabCompletion": "on",
+    "editor.semanticHighlighting.enabled": false,
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 200,
+    // --------------------------------------------
+    //----------------------rust analyzer0---------------------------
+    "rust-analyzer.inlayHints.typeHints.enable": true,
+    "rust-analyzer.inlayHints.parameterHints.enable": true,
+    "rust-analyzer.imports.granularity.enforce": true,
+    //--------------------------java---------------------------------
+    "java.completion.guessMethodArguments": true,
+    "[java]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll": false,
+            "source.organizeImports": true,
+        },
+    },
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-11",
+            "path": "C:\\Users\\huantedness\\.jdks\\corretto-11.0.12",
+            "default": true
+        },
+    ],
+    "java.autobuild.enabled": true,
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.codeGeneration.insertionLocation": "beforeCursor",
+    "java.debug.settings.hotCodeReplace": "auto",
+    "java.format.settings.url": "C:\\Users\\huantedness\\.m2\\eclipse-java-google-style.xml",
+    //-----------------------------------------------------------------------
+    "workbench.startupEditor": "none",
+    "maven.executable.path": "C:\\ProgramData\\apache-maven-3.8.4\\bin\\mvn",
+    "security.workspace.trust.untrustedFiles": "open",
+    "telemetry.telemetryLevel": "off",
+    // ---------------------------------------------------
+    "extensions.ignoreRecommendations": true,
+    "remote.SSH.remotePlatform": {
+        "148.70.32.146": "linux"
+    },
+    "typescript.autoClosingTags": true,
+    "typescript.suggest.completeFunctionCalls": true,
+    "typescript.suggest.autoImports": true,
+    "typescript.suggest.classMemberSnippets.enabled": true,
+    "typescript.suggest.includeCompletionsForImportStatements": true,
+    "typescript.suggest.includeAutomaticOptionalChainCompletions": true,
+    "typescript.suggest.includeCompletionsWithSnippetText": true,
+    // type script ------------------------------------------------------
+    "python.condaPath": "C:\\tools\\miniconda3\\Scripts\\conda.exe",
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "editor.inlineSuggest.enabled": true,
+    "window.openFoldersInNewWindow": "on",
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "git.ignoreLegacyWarning": true,
+    //--vim------------------
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "<C-j>"
+            ],
+            "after": [
+                "<Esc>",
+                "j",
+                "a"
+            ]
+        },
+        {
+            "before": [
+                "<C-k>"
+            ],
+            "after": [
+                "<Esc>",
+                "k",
+                "a"
+            ]
+        },
+        {
+            "before": [
+                "<C-h>"
+            ],
+            "after": [
+                "<Esc>",
+                "h",
+                "a"
+            ]
+        },
+        {
+            "before": [
+                "<C-l>"
+            ],
+            "after": [
+                "<Esc>",
+                "l",
+                "a"
+            ]
+        },
+        {
+            "before": [
+                "<C-w>"
+            ],
+            "after": [
+                "<Esc>",
+                "w",
+                "e",
+                "a"
+            ]
+        },
+        {
+            "before": [
+                "<C-e>"
+            ],
+            "after": [
+                "<Esc>",
+                "b",
+                "i",
+            ]
+        },
+        {
+            "before": [
+                "<C-u>"
+            ],
+            "after": [
+                "<Esc>",
+                "^",
+                "i"
+            ]
+        },
+        {
+            "before": [
+                "<C-i>"
+            ],
+            "after": [
+                "<Esc>",
+                "$",
+                "a"
+            ]
+        },
+        {
+            "before": [
+                "<C-g>"
+            ],
+            "after": [
+                "<Esc>",
+                "c",
+                "i",
+                "w"
+            ]
+        },
+    ],
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-d>": false,
+        "<C-f>": false,
+        "<C-s>": false,
+        "<C-z>": false,
+        "<C-c>": false,
+        "<C-v>": false,
+        "<C-x>": false,
+        "<C-y>": false,
+        "<C-b>": true,
+        "<C-;>": true
+    },
+    "vim.mouseSelectionGoesIntoVisualMode": false,
+    "vim.startInInsertMode": true,
+    "git.autofetch": true,
+    "files.saveConflictResolution": "overwriteFileOnDisk",
+    "workbench.layoutControl.enabled": false,
+    "editor.minimap.enabled": false,
+    "workbench.colorTheme": "Shades of Purple",
+    "workbench.colorCustomizations": {
+        "editorInlayHint.background": "#2D2B55",
+        "editorInlayHint.foreground": "#b3d3c65d",
+        //  "editorInlayHint.parameterBackground": "#2D2B55",
+        //  "editorInlayHint.parameterForeground": "#FB94FF",
+        //  "editorInlayHint.typeBackground": "#2D2B55",
+        //  "editorInlayHint.typeForeground": "#FB94FF",
+    },
+    // -----------------terminal------------
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true,
+        "source.organizeImports": true,
+    },
+}
