@@ -1,69 +1,540 @@
-// Place your key bindings in this file to override the defaultsauto[]
-[
-    {
-        "key": "ctrl+space",
-        "command": "editor.action.quickFix",
-        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+{
+    //----------------eslint----------------
+    "eslint.rules.customizations": [
+        {
+            "rule": "*",
+            "severity": "warn"
+        }
+    ],
+    //--------------------------------------
+    "go.survey.prompt": false,
+    "go.trace.server": "off",
+    "go.coverOnSave": false,
+    "go.enableCodeLens": {
+        "runtest": false,
     },
-    {
-        "key": "ctrl+oem_period",
-        "command": "-editor.action.quickFix",
-        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+shift+j",
-        "command": "selectNextSuggestion",
-        "when": "vim.active && suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
-    },
-    {
-        "key": "ctrl+shift+k",
-        "command": "selectPrevSuggestion",
-        "when": "vim.active && suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
-    },
-    {
-        "key": "ctrl+h",
-        "command": "-editor.action.startFindReplaceAction",
-        "when": "editorFocus || editorIsOpen"
-    },
-    {
-        "key": "ctrl+j",
-        "command": "-workbench.action.togglePanel"
-    },
-    {
-        "key": "ctrl+shift+u",
-        "command": "-workbench.action.output.toggleOutput",
-        "when": "workbench.panel.output.active"
-    },
-    {
-        "key": "ctrl+shift+t",
-        "command": "-workbench.action.reopenClosedEditor"
-    },
-    {
-        "key": "ctrl+shift+k",
-        "command": "-editor.action.deleteLines",
-        "when": "textInputFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+shift+j",
-        "command": "-workbench.action.search.toggleQueryDetails",
-        "when": "inSearchEditor || searchViewletFocus"
-    },
-    {
-        "key": "ctrl+shift+j",
-        "command": "-rust-analyzer.joinLines",
-        "when": "editorTextFocus && editorLangId == 'rust'"
-    },
-    {
-        "key": "ctrl+shift+i",
-        "command": "editor.action.refactor",
-        "args": {
-            "kind": "refactor.extract.variable",
-            "apply": "first"
+    "go.lintOnSave": "package",
+    "go.lintTool": "golangci-lint",
+    "go.lintFlags": [
+        "--disable=gofmt,typecheck"
+    ],
+    "go.formatFlags": [
+        "-s"
+    ],
+    "[go]": {
+        "editor.formatOnSave": false,
+        "editor.codeActionsOnSave": {
+            "source.fixAll": true,
+            "source.organizeImports": true,
         },
-        "when": "editorTextFocus && editorLangId == 'java'"
     },
-    {
-        "key": "ctrl+b",
-        "command": "-workbench.action.toggleSidebarVisibility"
+    "go.vetFlags": [
+        "-all"
+    ],
+    "go.testExplorer.packageDisplayMode": "nested",
+    "go.testExplorer.enable": true,
+    "go.testOnSave": false,
+    "go.testTimeout": "0",
+    "go.testFlags": [
+        //"-gcflags=all=-l",
+        "-v", // debug mode need this 
+        // "-count=1"
+    ],
+    "go.inlayHints.assignVariableTypes": false,
+    "go.inlayHints.functionTypeParameters": false,
+    "go.inlayHints.parameterNames": false,
+    "go.inlayHints.compositeLiteralFields": false,
+    "go.inlayHints.rangeVariableTypes": false,
+    "go.inlayHints.compositeLiteralTypes": false,
+    "go.inlayHints.constantValues": false,
+    "go.toolsManagement.autoUpdate": true,
+    "go.delveConfig": {
+        "debugAdapter": "dlv-dap",
     },
-]
+    "gopls": {
+        "verboseOutput": false,
+        "formatting.gofumpt": false,
+        "ui.codelenses": {
+            "gc_details": false,
+            "run_vulncheck_exp": true,
+        },
+        "ui.diagnostic.analyses": {
+            "nilness": true,
+            "unusedparams": true,
+            //"fieldalignment": true,
+        },
+        "build.buildFlags": [],
+        "ui.completion.matcher": "Fuzzy",
+        "ui.completion.experimentalPostfixCompletions": true,
+    },
+    //-------------------------------
+    "sqltools.autoOpenSessionFiles": false,
+    "sqltools.disableNodeDetectNotifications": true,
+    "sqltools.format": {
+        "linesBetweenQueries": "preserve"
+    },
+    // ------------------------------------
+    "runOnSave.commands": [
+        {
+            "match": "\\.go$",
+            "async": true,
+            "command": "gofumpt -w ${file}"
+        },
+    ],
+    //--------------------------------------
+    //-----------------testing--------------
+    "testing.alwaysRevealTestOnStateChange": false,
+    "testing.automaticallyOpenPeekView": "never",
+    "testing.followRunningTest": false,
+    "testing.openTesting": "neverOpen",
+    "testing.gutterEnabled": true,
+    "testing.defaultGutterClickAction": "debug",
+    //--------------------------------------
+    "explorer.confirmDelete": false,
+    "explorer.autoReveal": false,
+    "explorer.confirmDragAndDrop": false,
+    "search.followSymlinks": false,
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    //sss
+    "debug.internalConsoleOptions": "openOnSessionStart",
+    "debug.allowBreakpointsEverywhere": true,
+    // -------------------------------------------
+    // -------------------------------------------
+    "editor.snippetSuggestions": "inline",
+    "editor.snippets.codeActions.enabled": true,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.parameterHints.cycle": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.formatOnSave": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.inlayHints.enabled": "off",
+    "editor.acceptSuggestionOnEnter": "on",
+    "editor.suggest.insertMode": "replace",
+    "editor.wordBasedSuggestions": true,
+    "editor.suggestSelection": "first",
+    "editor.fontSize": 17,
+    "editor.tabSize": 4,
+    "editor.tabCompletion": "on",
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 200,
+    "editor.fontFamily": "consolas",
+    "editor.fontWeight": "500",
+    "editor.fontLigatures": true,
+    "editor.minimap.enabled": false,
+    "editor.inlineSuggest.enabled": false,
+    "files.autoSaveDelay": 5000,
+    "security.workspace.trust.enabled": true,
+    "security.workspace.trust.startupPrompt": "never",
+    "security.workspace.trust.banner": "never",
+    "security.workspace.trust.emptyWindow": true,
+    "workbench.trustedDomains.promptInTrustedWorkspace": false,
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.value": 10,
+    // --------------------------------------------
+    //----------------------rust analyzer0---------------------------
+    "rust-analyzer.inlayHints.typeHints.enable": true,
+    "rust-analyzer.inlayHints.parameterHints.enable": true,
+    "rust-analyzer.imports.granularity.enforce": true,
+    //--------------------------java---------------------------------
+    "java.completion.guessMethodArguments": "auto",
+    "[java]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll": false,
+            "source.organizeImports": true,
+        },
+    },
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-11",
+            "path": "C:\\Users\\huantedness\\.jdks\\corretto-11.0.12",
+            "default": true
+        },
+    ],
+    "java.autobuild.enabled": true,
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.codeGeneration.insertionLocation": "beforeCursor",
+    "java.debug.settings.hotCodeReplace": "auto",
+    //"java.format.settings.url": "C:\\Users\\huantedness\\.m2\\eclipse-java-google-style.xml",
+    //-----------------------------------------------------------------------
+    "workbench.startupEditor": "none",
+    "maven.executable.path": "C:\\ProgramData\\apache-maven-3.8.4\\bin\\mvn",
+    "security.workspace.trust.untrustedFiles": "open",
+    "telemetry.telemetryLevel": "off",
+    // ---------------------------------------------------
+    "extensions.ignoreRecommendations": true,
+    "remote.SSH.remotePlatform": {
+        "148.70.32.146": "linux",
+        "ec2-13-235-134-75.ap-south-1.compute.amazonaws.com": "linux",
+        "ec2-52-66-209-122.ap-south-1.compute.amazonaws.com": "linux",
+        "ec2-3-110-33-34.ap-south-1.compute.amazonaws.com": "linux",
+        "54.218.217.78": "linux",
+        "ec2-34-212-28-25.us-west-2.compute.amazonaws.com": "linux",
+        "192.168.124.6": "linux",
+        "192.168.124.4": "linux",
+        "192.168.124.102": "linux"
+    },
+    "typescript.check.npmIsInstalled": false,
+    "typescript.tsc.autoDetect": "on",
+    "typescript.workspaceSymbols.scope": "currentProject",
+    "typescript.autoClosingTags": true,
+    "typescript.suggest.completeFunctionCalls": true,
+    "typescript.suggest.completeJSDocs": false,
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "typescript.suggest.autoImports": true,
+    "typescript.suggest.classMemberSnippets.enabled": true,
+    "typescript.suggest.includeCompletionsForImportStatements": true,
+    "typescript.suggest.includeAutomaticOptionalChainCompletions": false,
+    "typescript.suggest.enabled": true,
+    // type script ------------------------------------------------------
+    "python.condaPath": "C:\\tools\\miniconda3\\Scripts\\conda.exe",
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "window.openFoldersInNewWindow": "on",
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "terminal.explorerKind": "external",
+    "git.ignoreLegacyWarning": true,
+    //--vim------------------
+    "vim.leader": "",
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<C-j>"
+            ],
+            "after": [
+                "<Esc>",
+                "j",
+                "a"
+            ]
+        },
+        {
+            "before": [
+                "<C-k>"
+            ],
+            "after": [
+                "<Esc>",
+                "k",
+                "a"
+            ]
+        },
+        {
+            "before": [
+                "<C-h>"
+            ],
+            "after": [
+                "<Esc>",
+                "h",
+                "a"
+            ]
+        },
+        {
+            "before": [
+                "<C-l>"
+            ],
+            "after": [
+                "<Esc>",
+                "l",
+                "a"
+            ]
+        },
+        {
+            "before": [
+                "<C-w>"
+            ],
+            "after": [
+                "<Esc>",
+                "w",
+                "e",
+                "a"
+            ]
+        },
+        {
+            "before": [
+                "<C-e>"
+            ],
+            "after": [
+                "<Esc>",
+                "b",
+                "b",
+                "i",
+            ]
+        },
+        {
+            "before": [
+                "<C-u>"
+            ],
+            "after": [
+                "<Esc>",
+                "<Esc>",
+                "^",
+                "i"
+            ]
+        },
+        {
+            "before": [
+                "<C-i>"
+            ],
+            "after": [
+                "<Esc>",
+                "<Esc>",
+                "$",
+                "a"
+            ]
+        },
+        {
+            "before": [
+                "<C-g>"
+            ],
+            "after": [
+                "<Esc>",
+                "c",
+                "i",
+                "w"
+            ]
+        },
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "a"
+            ],
+            "after": [
+                "a",
+            ]
+        },
+    ],
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-d>": false,
+        "<C-f>": false,
+        "<C-s>": false,
+        "<C-z>": false,
+        "<C-c>": false,
+        "<C-v>": false,
+        "<C-x>": false,
+        "<C-y>": false,
+        "<C-b>": true,
+        "<C-e>": true,
+    },
+    "vim.cursorStylePerMode.insert": "line-thin",
+    "vim.mouseSelectionGoesIntoVisualMode": false,
+    "vim.startInInsertMode": true,
+    "git.autofetch": true,
+    "files.saveConflictResolution": "overwriteFileOnDisk",
+    "workbench.editor.enablePreview": false,
+    "workbench.colorCustomizations": {
+        "editorInlayHint.background": "#2D2B55",
+        "editorInlayHint.foreground": "#bdd3cf",
+        //  "editorInlayHint.parameterBackground": "#2D2B55",
+        //  "editorInlayHint.parameterForeground": "#FB94FF",
+        //  "editorInlayHint.typeBackground": "#2D2B55",
+        //  "editorInlayHint.typeForeground": "#FB94FF",
+    },
+    "editor.tokenColorCustomizations": {
+        "[Shades of Purple]": {
+            "comments": "#a4b99f",
+        }
+    },
+    // -----------------terminal------------
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true,
+        "source.organizeImports": true,
+    },
+    "cSpell.caseSensitive": false,
+    "cSpell.ignoreWords": [
+        "go",
+    ],
+    "cSpell.minWordLength": 2,
+    "cSpell.spellCheckOnlyWorkspaceFiles": true,
+    "cSpell.userWords": [
+        "accs",
+        "Acks",
+        "Alloc",
+        "amm",
+        "Arbitrum",
+        "asof",
+        "authv",
+        "btn",
+        "buf",
+        "bytea",
+        "caser",
+        "chromedp",
+        "conda",
+        "corretto",
+        "ctx",
+        "Curr",
+        "datas",
+        "Debugf",
+        "denormalized",
+        "df",
+        "Dialector",
+        "dmarkham",
+        "DSL",
+        "dsn",
+        "ebnf",
+        "eface",
+        "elems",
+        "env",
+        "ERC",
+        "erras",
+        "errf",
+        "errl",
+        "Errorf",
+        "fil",
+        "fn",
+        "fset",
+        "fyne",
+        "gcflags",
+        "Gio",
+        "gioui",
+        "go",
+        "gocode",
+        "godotenv",
+        "goexperiment",
+        "GOFILE",
+        "gofmt",
+        "gofumpt",
+        "golangci",
+        "GOLINE",
+        "gomonkey",
+        "gonic",
+        "gonum",
+        "gopls",
+        "goquery",
+        "goregular",
+        "gorgonia",
+        "gorm",
+        "gosmallcaps",
+        "gosmallcapsitalic",
+        "GPT",
+        "graphsdk",
+        "gtx",
+        "gx",
+        "hauntedness",
+        "heapify",
+        "hexutil",
+        "huantedness",
+        "Iface",
+        "img",
+        "imroc",
+        "Infof",
+        "initctx",
+        "intz",
+        "itd",
+        "jackc",
+        "Jdbc",
+        "jdks",
+        "jmoiron",
+        "joho",
+        "jwt",
+        "Keccak",
+        "libc",
+        "llm",
+        "lru",
+        "Merkle",
+        "mimalloc",
+        "miniconda",
+        "modernc",
+        "mspan",
+        "nibiru",
+        "nlpodyssey",
+        "nn",
+        "nocheckptr",
+        "nodes",
+        "nohup",
+        "nolint",
+        "nosplit",
+        "OKCANCEL",
+        "Omnia",
+        "packagex",
+        "pem",
+        "pgconn",
+        "pgx",
+        "pgxpool",
+        "pkgs",
+        "plantuml",
+        "Println",
+        "protobuf",
+        "protoc",
+        "protoimpl",
+        "pstmt",
+        "Puerkito",
+        "pythonic",
+        "Queryx",
+        "Quora",
+        "reqs",
+        "rmigo",
+        "rpc",
+        "runonsave",
+        "samber",
+        "sarama",
+        "scroller",
+        "secp",
+        "sema",
+        "simd",
+        "spago",
+        "sqlx",
+        "start",
+        "stretchr",
+        "strs",
+        "struct",
+        "structs",
+        "Tappable",
+        "tmpl",
+        "Tok",
+        "Trie",
+        "tt",
+        "txn",
+        "txns",
+        "ui",
+        "uintptr",
+        "uml",
+        "unexported",
+        "unmarshals",
+        "unusedparams",
+        "USD",
+        "usec",
+        "Vec",
+        "vulncheck",
+        "wasi",
+        "wechatbot",
+        "wg",
+        "wss",
+        "yaegi",
+        "zk",
+        "zksync"
+    ],
+    "cSpell.allowCompoundWords": true,
+    // -- sqltool-----
+    "sqltools.defaultExportType": "json",
+    "sqltools.results.location": "current",
+    "sqltools.useNodeRuntime": false,
+    "plantuml.server": "https://www.plantuml.com/plantuml",
+    "git.confirmSync": false,
+    "git.openRepositoryInParentFolders": "never",
+    "solidity.telemetry": false,
+    "errorLens.lintFilePaths": {
+        "eslint": [
+            "**/*.eslintrc.{js,cjs,yaml,yml,json}",
+            "**/*package.json"
+        ],
+        "Stylelint": [
+            "**/*.stylelintrc",
+            "**/*.stylelintrc.{cjs,js,json,yaml,yml}",
+            "**/*stylelint.config.{cjs,js}",
+            "**/*package.json"
+        ]
+    },
+    "workbench.colorTheme": "Shades of Purple",
+    "git.enableSmartCommit": true,
+    "vscode-spring-boot.rewrite.reconcile-prompt": false,
+    "redhat.telemetry.enabled": false,
+    "vs-kubernetes": {
+        "vs-kubernetes.minikube-show-information-expiration": "2024-01-16T11:52:34.081Z"
+    },
+}
